@@ -164,7 +164,7 @@ def get_conn(cfg):
         host=cfg["host"], port=int(cfg["port"]),
         dbname=cfg["dbname"], user=cfg["user"],
         password=cfg["password"],
-        sslmode="disable",   # Local pgAdmin ke liye disable
+        sslmode="require",   # Local pgAdmin ke liye disable
         connect_timeout=5,
     )
 
