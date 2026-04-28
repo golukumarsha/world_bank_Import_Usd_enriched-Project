@@ -159,12 +159,13 @@ model = load_model()
 # ==============================================================================
 
 
-def get_conn(cfg):
+DATABASE_URL = "postgresql://myapp_db_vm7v_user:q3Gg9HX4bGwj94B5n8RzHgvs6R9Avpjk@dpg-d7o9j0nlk1mc73ck3r1g-a.ohio-postgres.render.com/myapp_db_vm7v"
+
+
+def get_conn(cfg=None):
     return psycopg2.connect(
-        host=cfg["host"], port=int(cfg["port"]),
-        dbname=cfg["dbname"], user=cfg["user"],
-        password=cfg["password"],
-        sslmode="require",   # Local pgAdmin ke liye disable
+        DATABASE_URL,
+        sslmode="require",
         connect_timeout=5,
     )
 
